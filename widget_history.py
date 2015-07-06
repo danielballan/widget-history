@@ -15,6 +15,18 @@ class WidgetHistory:
         backed by a sqlite db
     widgets : list, optional
         list of widgets to capture; if None, use all Widget instances
+
+    Examples
+    --------
+    Start history.
+    >>> import history
+    >>> import widget_history
+    >>> h = history.History('my_history.db')
+    >>> WidgetHistory(h)
+    Create widget(s) to record.
+    >>> IntSlider(description='example 1', min=0, max=20, model_id='example1')
+    An explicit model_id is required to persistent history when code is
+    re-executed.
     """
     def __init__(self, history, widgets=None):
         self._history = history
